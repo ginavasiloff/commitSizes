@@ -1,6 +1,6 @@
 ﻿
 using System;
-using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace CommitSize
 {
@@ -10,22 +10,13 @@ namespace CommitSize
         {
             try
             {
-                ProcessStartInfo startInfo = new ProcessStartInfo()
-                {
-                    WorkingDirectory = "/Users/Gina/Workspace/AuditTrails",
-                    FileName = "git",
-                    Arguments = "log",
-                    RedirectStandardOutput = true,
-                    RedirectStandardInput = true,
-                    UseShellExecute = false
-                };
-                Process proc = Process.Start(startInfo);
-                while(!proc.StandardOutput.EndOfStream)
-                {
-                    var line = proc.StandardOutput.ReadLine();
-                    Console.WriteLine(line);
-                }
-                proc.Close();              
+                //\d* files? changed,?( \d* insertions?\(\+\))?,?( \d* deletions?\(\-\))?
+                List<string> shas = Git.GetCommitShas();
+                shas.ForEach(sha =>
+                { 
+                    Console.WriteLine(Git.GetInfo(sha));
+                });
+      
             }
             catch(Exception e)
             {

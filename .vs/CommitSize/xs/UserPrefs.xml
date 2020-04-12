@@ -1,7 +1,8 @@
 ﻿<Properties StartupConfiguration="{8E39E501-CD22-4D72-89D3-5C6DE2A6D30D}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="CommitSize/Program.cs">
     <Files>
-      <File FileName="CommitSize/Program.cs" Line="2" Column="2" />
+      <File FileName="CommitSize/Program.cs" Line="30" Column="38" />
+      <File FileName="CommitSize/Git.cs" Line="6" Column="13" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,14 +11,16 @@
             <Node name="CommitSize" expanded="True">
               <Node name="Program.cs" selected="True" />
             </Node>
+            <Node name="CommitSizeTest" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.CommitSizeTest FirstBuild="True" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.CommitSize FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.CommitSize PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
