@@ -41,8 +41,5 @@ namespace CommitSize
             }
             return null;
         }
-
-        //private static Object 
-
     }
 }

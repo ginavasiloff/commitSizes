@@ -1,5 +1,5 @@
 /bin
 .vs
-CommitSizeTest/obj
-CommitSizeTest/bin
+*/obj
+*/bin
 *.swp
