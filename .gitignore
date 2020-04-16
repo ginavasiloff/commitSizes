@@ -2,3 +2,4 @@
 .vs
 CommitSizeTest/obj
 CommitSizeTest/bin
+*.swp
