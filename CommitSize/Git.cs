@@ -27,23 +27,19 @@ namespace CommitSize
             return shas;
         }
 
-        public static string GetInfo(string sha)
+        public static ChangeInfo GetInfo(string sha)
         {
             ProcessStartInfo startInfo = GetStartInfo($"show --stat {sha}");
             Process stats = Process.Start(startInfo);
-            string line = "";
+            ChangeInfo changes = new ChangeInfo();
             while (!stats.StandardOutput.EndOfStream)
             {
-                line = stats.StandardOutput.ReadLine();
-                if (Regex.Match(line, @"\d* files? changed,?( \d* insertions?\(\+\))?,?( \d* deletions?\(\-\))?") != Match.Empty)
-                {
-                    break;
-                }
-
+                changes = ParseGit.ParseStat(stats.StandardOutput.ReadLine());
+                changes.Commit = sha;
             }
             stats.Close();
             stats.Dispose();
-            return line;
+            return changes;
         }
 
         private static ProcessStartInfo GetStartInfo(string args)
@@ -59,4 +55,12 @@ namespace CommitSize
             };
         }
     }
+}
+
+public class ChangeInfo
+{
+    public string Commit;
+    public int Files = 0;
+    public int Deletions = 0;
+    public int Insertions = 0;
 }

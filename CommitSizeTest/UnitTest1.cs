@@ -2,17 +2,21 @@ using NUnit.Framework;
 
 namespace CommitSizeTest
 {
-    public class Tests
+    [TestFixture]
+    public class ParseInfoTests
     {
+
+        
+
         [SetUp]
         public void Setup()
         {
         }
 
         [Test]
-        public void Test1()
+        public void IsChangeLine_Test()
         {
-            Assert.Pass();
-        }
+            //Assert.False(IsChangeLine("garbage"));
+         }
     }
 }

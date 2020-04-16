@@ -1,28 +1,32 @@
-﻿<Properties StartupConfiguration="{8E39E501-CD22-4D72-89D3-5C6DE2A6D30D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="CommitSize/Program.cs">
+﻿<Properties StartupConfiguration="{CDF6BC23-930B-4B64-A797-B23FCE031818}|Unit Tests">
+  <MonoDevelop.Ide.ItemProperties.ConnitSizeTests PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CommitSize/Git.cs">
     <Files>
-      <File FileName="CommitSize/Program.cs" Line="30" Column="38" />
-      <File FileName="CommitSize/Git.cs" Line="6" Column="13" />
+      <File FileName="CommitSize/Git.cs" Line="12" Column="52" />
+      <File FileName="CommitSize/ParseGit.cs" Line="25" Column="18" />
+      <File FileName="ConnitSizeTests/ParseGitTest.cs" Line="17" Column="10" />
+      <File FileName="CommitSize/Program.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CommitSize" expanded="True">
             <Node name="CommitSize" expanded="True">
-              <Node name="Program.cs" selected="True" />
+              <Node name="Git.cs" selected="True" />
             </Node>
-            <Node name="CommitSizeTest" expanded="True" />
+            <Node name="ConnitSizeTests" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.CommitSizeTest FirstBuild="True" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.ItemProperties.CommitSize PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/Gina/Projects/CommitSize/CommitSizeTest/UnitTest1.cs" relfile="CommitSizeTest/UnitTest1.cs" line="15" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

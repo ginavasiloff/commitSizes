@@ -12,16 +12,19 @@ namespace CommitSize
             {
                 //\d* files? changed,?( \d* insertions?\(\+\))?,?( \d* deletions?\(\-\))?
                 List<string> shas = Git.GetCommitShas();
+                List<ChangeInfo> changes = new List<ChangeInfo>();
                 shas.ForEach(sha =>
-                { 
-                    Console.WriteLine(Git.GetInfo(sha));
+                {
+                    ChangeInfo change = Git.GetInfo(sha);
+                    changes.Add(change);
                 });
-      
+
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e);
             }
+
         }
     }
 }
