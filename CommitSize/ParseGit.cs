@@ -16,21 +16,21 @@ namespace CommitSize
                 string insertions = match.Groups["insertions"].Value;
                 string deletions = match.Groups["deletions"].Value;
 
-                if (String.IsNullOrWhiteSpace(insertions))
+                if (string.IsNullOrWhiteSpace(insertions))
                 {
                     insertions = "0";
                 }
 
-                if (String.IsNullOrWhiteSpace(deletions))
+                if (string.IsNullOrWhiteSpace(deletions))
                 {
                     deletions = "0";
                 }
 
                 try
                 {
-                    changes.Files = Int32.Parse(files);
-                    changes.Insertions = Int32.Parse(insertions);
-                    changes.Deletions = Int32.Parse(deletions);
+                    changes.Files = int.Parse(files);
+                    changes.Insertions = int.Parse(insertions);
+                    changes.Deletions = int.Parse(deletions);
                 } catch(System.FormatException e)
                 {
                     Console.WriteLine("Bad Format: ");
@@ -41,6 +41,8 @@ namespace CommitSize
             }
             return null;
         }
+
+        //private static Object 
 
     }
 }
