@@ -1,12 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
 namespace CommitSize
 {
-    public static class Git
+    public class Git
     {
-        public static List<string> GetCommitShas()
+        public string workingDirectory { get; set; }
+
+        public Git(string workingDirectory)
+        {
+            this.workingDirectory = workingDirectory;
+        }
+
+        public List<string> GetCommitShas()
         {
             List<string> shas = new List<string>();
             ProcessStartInfo startInfo = GetStartInfo("log");
@@ -26,28 +34,31 @@ namespace CommitSize
             return shas;
         }
 
-        public static ChangeInfo GetInfo(string sha)
+        public ChangeInfo GetInfo(string sha)
         {
             ProcessStartInfo startInfo = GetStartInfo($"show --stat {sha}");
             Process stats = Process.Start(startInfo);
-            ChangeInfo changes = new ChangeInfo();
             while (!stats.StandardOutput.EndOfStream)
             {
-                changes = ParseGit.ParseStat(stats.StandardOutput.ReadLine());
-                changes.Commit = sha;
+                string line = stats.StandardOutput.ReadLine();
+                Match changeMatch = ParseGit.GetChangeMatch(line);
+                if (changeMatch.Success)
+                {
+                    return ParseGit.GetInfoFromMatch(changeMatch);
+                }
             }
             stats.Close();
             stats.Dispose();
-            return changes;
+            return null;
         }
 
-        private static ProcessStartInfo GetStartInfo(string args)
+        private ProcessStartInfo GetStartInfo(string gitArgs)
         {
             return new ProcessStartInfo()
             {
-                WorkingDirectory = "/Users/Gina/Workspace/AuditTrails",
+                WorkingDirectory = workingDirectory,
                 FileName = "git",
-                Arguments = args,
+                Arguments = gitArgs,
                 RedirectStandardOutput = true,
                 RedirectStandardInput = true,
                 UseShellExecute = false
